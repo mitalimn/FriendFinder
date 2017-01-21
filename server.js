@@ -15,9 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.get("/", function(req,res){
-	res.send("hello!!!");
-})
+require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes.js')(app);
 
 // Starts the server to begin listening
 // =============================================================
