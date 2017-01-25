@@ -1,6 +1,15 @@
-a{
-	padding:5px;
-}
-.main-header{
-	background-color: coral;
-}
+    a {
+        padding: 2px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    footer a{
+    	font-size: 12px;
+    	 text-decoration: none;
+    }
+    .main-header {
+        background-color: coral;
+    }
+    .main-body{
+    	margin: 0,auto;
+    }
