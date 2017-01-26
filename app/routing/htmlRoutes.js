@@ -14,6 +14,6 @@ module.exports = function(app) {
 
     app.use('/css', function (req, res) {
     	// body...
-    	res.sendFile(path.join(__dirname, "../public/assets/css/styles.css"));
+    	res.sendFile(path.join(__dirname, "../public/assets/css/style.css"));
     } )
 }
