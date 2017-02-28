@@ -1,72 +1,55 @@
-var path = require("path");
-var express = require("express");
-var bodyParser = require("body-parser");
-
-var friends = require("../data/friends.js");
-
+var friendsData = require("../data/friends.js");
 
 module.exports = function(app){
-	var match = [];
-
 	app.get('/api/friends', function(req,res){
-		res.json(friends);
-	})
+	res.json(friendsData);
+});
 
-	app.post('/api/survey', function(req, res){
-			friends.push(req.body);
-			newUserScore = req.body.scores;
-			
-			console.log(newUserScore);
+// post route to add friends friendsData
 
-			for(var i=0; i< friends.length-1; ++i){
-				var matchScore = 0;
-				var scoreDiff = 0;
+app.post('/api/friends', function(req, res){
+	var newFriend = {
+		name : req.body.name,
+		photo  : req.body.photo,
+		scores : []
+	};
 
-				for(var j=0; j< newUserScore.length; j++){
-					scoreDiff = Math.abs(newUserScore[j] - friends[i].scores[j]);
-					matchScore = matchScore + scoreDiff;
-				}
-				match.push(matchScore);
-			}
+	var scoresArray = [];
+	for (var i=0; i<req.body.scores.length; i++){
+		scoresArray.push(parseInt(req.body.scores[i]))
+	}
+	newFriend.scores = scoresArray;
 
-			var perfectMatchScore = match[0];
+	var scoreComparisonArray = [];
 
-			for(var i=1 ; i<match.length; ++i){
-				if(match[i]<perfectMatchScore){
-					perfectMatchScore = match[i];
-				}
-			}
+	for(var i=0; i<friendsData.length;i++){
+		var currentComparison = 0;
+		for(var j = 0; j<newFriend.scores.length;j++){
+			currentComparison += Math.abs(newFriend.scores[j] - friendsData[i].scores[j]);
+		} 
+		scoreComparisonArray.push(currentComparison);
+	}
 
-			var ties = [];
-			for(var i=0; i<match.length; ++i){
-				if(perfectMatchScore == match[i]){
-					ties.push(i);
-				}
-			}
+//determine best match
 
-			var max = ties.length -1;
-			var min = 0;
+	var bestMatchPosition = 0;
+	for(var i = 1; i< scoreComparisonArray.length; i++){
+		if(scoreComparisonArray[i] <= scoreComparisonArray[bestMatchPosition]){
+			bestMatchPosition = i;
+		}
+	}
 
-			var chooseRandom = (Math.floor(Math.Random() * (max - min+1))+min);
+	//if they have same scores , new entry is chosen
 
-			var index = ties[chooseRandom];
+	var bestFriendMatch = friendsData[bestMatchPosition];
+	res.json(bestFriendMatch);
+	friendsData.push(newFriend);
 
-			var perfectMatchName = friends[index].name; 
+});//end post
 
-			if(ties.length >1){
-				var popupText = "Choose randomly among " + ties.length +"matches";
-			}
-			else{
-				var popupText = "There are no ties";
-			}
+}//end exports app function
 
-			var perfectMatchImageLink = friends[index].photo;
 
-			res.json({
-				'name' : perfectMatchName,
-				'alert' : popupText,
-				'photo' : perfectMatchImageLink
-			});
 
-		});
-}
+
+

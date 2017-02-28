@@ -1,170 +1,187 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Perfect Match</title>
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Perfect Match</title>
+
+	    <!--jquery-->
+     <script src="https://code.jquery.com/jquery.js"></script>
+<!--bootsrrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Font awsome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="/css">
-      <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-          <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="/css">
+	<link rel="stylesheet" type="text/css" href="/css">
 </head>
-
 <body>
-    <div class="jumbotron">
+	<div class="container">
+        <div class="page-header">
+            <h1 style="font-size: 45px;"><span class="glyphicon glyphicon-star" style="color: #d9534f;"></span> Friend Finder</h1>
+        </div>      
+    
+<!--user name photo link paner-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">About you</h3>
     </div>
-    <div class="jumbotron text-center main-header">
-        <h1>Friend Finder App</h1>
-        <h2>Answer a few basic questions.</h2>
-        <h2>Then find the friend with the greatest compatibility!</h2>
-      
-        <a class="btn btn-primary btn-lg btn-default" href="/" role="button"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> 
+    <div class="panel-body">
+        <h4>Enter your name</h4>
+        <div class="input-group">
+            <input id = "formName" class = "form-control" type="text" name = "name" placeholder="John Doe">
+            <span class="input-group-addon">(Required)</span>
+        </div>
+        <br>
+        <h4>Link to a photo</h4>
+        <div class="input-group">
+            <input id = "formImage" class = "form-control" type="text" name = "name" placeholder="http://yourimagelink.com/abc.jpg">
+            <span class="input-group-addon">(Required)</span>
+        </div>
     </div>
-    <div class="main-body">
-        <div class="form-group">
-            <label for="name-input">Enter Name </label>
-            <input type="text" class="form-control" id="name-input" aria-describedby="namehelp" placeholder="Enter Name">
+</div>
+
+    <!--Quiz Panel Area-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong> Questionnaire</strong></h3>
         </div>
-        <div class="form-group">
-            <label for="image-input">Enter Link for your Image </label>
-            <input type="text" class="form-control" id="image-input" aria-describedby="linkhelp" placeholder="Enter Image Link">
-        </div>
-        <!-- Question 1 -->
-        <form id="q1">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="qn odd">
-                        <h4>1. Your mind is always buzzing with unexplored ideas and plans.</h4>
-                        <input type="radio" name="q1">1(Strongly Disagree)
-                        <input type="radio" name="q1">2
-                        <input type="radio" name="q1">3
-                        <input type="radio" name="q1">4
-                        <input type="radio" name="q1">5(Strongly Agree)
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="qn even">
-                        <h4>2. Generally speaking, you rely more on your experience than your imagination.</h4>
-                        <input type="radio" name="q2">1(Strongly Disagree)
-                        <input type="radio" name="q2">2
-                        <input type="radio" name="q2">3
-                        <input type="radio" name="q2">4
-                        <input type="radio" name="q2">5(Strongly Agree)
-                    </div>
-                </div>
-            </div>
+         <div class="panel-body">
+            
+            <!--Question 1-->
+            <h4><strong>Question 1</strong></h4>
+            <h5>1. Your mind is always buzzing with unexplored ideas and plans.</h5>
+            <select class="chosen-select" id="Q1" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
+            <!--Question 2-->
+            <h4><strong>Question 2</strong></h4>
+            <h5>2. Generally speaking, you rely more on your experience than your imagination.</h5>
+            <select class="chosen-select" id="Q2" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-<!-- Question 3 & 4 -->
-<div class="row">
-                <div class="col-md-6">
-                    <div class="qn even">
-                        <h4>3. You find it easy to stay relaxed and focused even when there is some pressure.
-</h4>
-                        <input type="radio" name="q3">1(Strongly Disagree)
-                        <input type="radio" name="q3">2
-                        <input type="radio" name="q3">3
-                        <input type="radio" name="q3">4
-                        <input type="radio" name="q3">5(Strongly Agree)
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="qn odd">
-                        <h4>4. You rarely do something just out of sheer curiosity.</h4>
-                        <input type="radio" name="q4">1(Strongly Disagree)
-                        <input type="radio" name="q4">2
-                        <input type="radio" name="q4">3
-                        <input type="radio" name="q4">4
-                        <input type="radio" name="q4">5(Strongly Agree)
-                    </div>
-                </div>
-            </div>
+             <!--Question 3-->
+            <h4><strong>Question 3</strong></h4>
+            <h5>3. You find it easy to stay relaxed and focused even when there is some pressure.</h5>
+            <select class="chosen-select" id="Q3" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-<!-- Question 5, 6 -->
+             <!--Question 4-->
+            <h4><strong>Question 4</strong></h4>
+            <h5>4. You rarely do something just out of sheer curiosity.</h5>
+            <select class="chosen-select" id="Q4" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-<div class="row">
-                <div class="col-md-6">
-                    <div class="qn odd">
-                        <h4>5. People can rarely upset you.</h4>
-                        <input type="radio" name="q5">1(Strongly Disagree)
-                        <input type="radio" name="q5">2
-                        <input type="radio" name="q5">3
-                        <input type="radio" name="q5">4
-                        <input type="radio" name="q5">5(Strongly Agree)
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="qn even">
-                        <h4>6. It is often difficult for you to relate to other people’s feelings.</h4>
-                        <input type="radio" name="q6">1(Strongly Disagree)
-                        <input type="radio" name="q6">2
-                        <input type="radio" name="q6">3
-                        <input type="radio" name="q6">4
-                        <input type="radio" name="q6">5(Strongly Agree)
-                    </div>
-                </div>
-            </div>
+             <!--Question 5-->
+            <h4><strong>Question 5</strong></h4>
+            <h5>5. People can rarely upset you.</h5>
+            <select class="chosen-select" id="Q5" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
+             <!--Question 6-->
+            <h4><strong>Question 6</strong></h4>
+            <h5>6. It is often difficult for you to relate to other people’s feelings.</h5>
+            <select class="chosen-select" id="Q6" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-            <!-- Question 7 8 -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="qn even">
-                        <h4>7. In a discussion, truth should be more important than people’s sensitivities.</h4>
-                        <input type="radio" name="q7">1(Strongly Disagree)
-                        <input type="radio" name="q7">2
-                        <input type="radio" name="q7">3
-                        <input type="radio" name="q7">4
-                        <input type="radio" name="q7">5(Strongly Agree)
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="qn odd">
-                        <h4>8. You rarely get carried away by fantasies and ideas.</h4>
-                        <input type="radio" name="q8">1(Strongly Disagree)
-                        <input type="radio" name="q8">2
-                        <input type="radio" name="q8">3
-                        <input type="radio" name="q8">4
-                        <input type="radio" name="q8">5(Strongly Agree)
-                    </div>
-                </div>
-            </div>
+             <!--Question 7-->
+            <h4><strong>Question 7</strong></h4>
+            <h5>7. In a discussion, truth should be more important than people’s sensitivities.</h5>
+            <select class="chosen-select" id="Q7" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
+             <!--Question 8-->
+            <h4><strong>Question 8</strong></h4>
+            <h5>8. You rarely get carried away by fantasies and ideas.</h5>
+            <select class="chosen-select" id="Q8" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-            <!-- questio 9, 10 -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="qn odd">
-                        <h4>9. You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
-                        <input type="radio" name="q9">1(Strongly Disagree)
-                        <input type="radio" name="q9">2
-                        <input type="radio" name="q9">3
-                        <input type="radio" name="q9">4
-                        <input type="radio" name="q9">5(Strongly Agree)
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="qn even">
-                        <h4>10. You feel more energetic after spending time with a group of people.</h4>
-                        <input type="radio" name="q10">1(Strongly Disagree)
-                        <input type="radio" name="q10">2
-                        <input type="radio" name="q10">3
-                        <input type="radio" name="q10">4
-                        <input type="radio" name="q10">5(Strongly Agree)
-                    </div>
-                </div>
-            </div>
-        <div class="text-center submitbtn">
-            <button type="submit" class="btn btn-lg btn-default" id="submit">Submit</button>
-        </div>
-        </form>
+               <!--Question 9-->
+            <h4><strong>Question 9</strong></h4>
+            <h5>9. You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
+            <select class="chosen-select" id="Q9" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
 
-<!-- Modal -->
-<div class="modal fade" role="dialog" id="perfectFriendModal">
+              <!--Question 10-->
+            <h4><strong>Question 10</strong></h4>
+            <h5>10. You feel more energetic after spending time with a group of people.</h5>
+            <select class="chosen-select" id="Q10" data-placeholder="">
+                <option value=""></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 </option>
+                <option value="3">3 </option>
+                <option value="4">4 </option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+
+         </div>
+    </div>
+    <!--Submit button for quiz-->
+    <button id="submitButton" type="submit" class="btn btn-md btn-danger btn-block">
+        <h4><span class="glyphicon glyphicon-send">Submit</span></h4>
+    </button>
+
+    <br>
+        <footer>
+    	<a href="/api/friends">API Friends List</a>|
+    	<a href="#">GitHub Repo</a>
+    </footer>
+
+    <!--Match Modal-->
+
+    <div class="modal fade" role="dialog" id="resultsModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -172,63 +189,90 @@
                 <h2 class="modal-title"><strong>Your Perfect Match</strong></h2>
             </div>
             <div class="modal-body">
-                <h2 id="perfectName"></h2>
-                <h4 id="popUp"></h4>
-                <img id="perfectPhoto" alt="" height="500" width="550">
+                <h2 id="matchName"></h2>
+                <img id="matchImg" src="" alt="Image Not found" height="500" width="550">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" id="footClose" data-dismiss="modal">Close</button>
             </div>
-        </div>      
-    </div>  
-</div>
-    
-<!-- Modal ends -->
-
+        </div>
     </div>
+</div>
 
+<!--modal ends-->
 
-    <footer>
-        <a href="/api/friends">API Friends List</a>|
-        <a href="#">GitHub Repo</a>
-    </footer>
+    </div><!--container div ends-->
 
-    <script type="text/javascript">
-        $('#submit').on('click',function(e){
-            // e.preventDefault();
-            var isValid = false;
-            var name = $('#name-input').val().trim();
-            var photo = $('#image-input').val().trim();
-            if(name !==""  && photo !== ""){
-                //json object for a new user
-                var newFriend = {
-                    "name" :name,
-                    "photo" : photo,
-                    "scores" : [$('input[name="q1"]:checked').val(),
-                    $('input[name="q2"]:checked').val(),
-                    $('input[name="q3"]:checked').val(),
-                    $('input[name="q4"]:checked').val(),
-                    $('input[name="q5"]:checked').val(),
-                    $('input[name="q6"]:checked').val(),
-                    $('input[name="q7"]:checked').val(),
-                    $('input[name="q8"]:checked').val(),
-                    $('input[name="q9"]:checked').val(),
-                    $('input[name="q10"]:checked').val()]
-                };
-                    var currentUrl = window.location.origin;
-                    $.post(currentUrl+'api/survey', newFriend, function(userdata){
-                        $('#perfectName').text(userdata.name);
-                        $('#popUp').text(userdata.alert);
-                    })
-            }
-            else{
-                alert("Please complete out all the fields")
-            }       
-            return false;
-        })
+    <script>
+        var allFieldsCompleted;//global variable
+        $(document).ready(function(){
+            $('#submitButton').on("click", function(){
+                //check all fields are complete
+                validate(function(){
+                    //ajax call to check if all answers are answered
+                    if(allFieldsCompleted){
+                        getInput();
+                    }
+                    else{
+                        alert("Please complete all the fields");
+                    }
+                });
+            });//end submit listener
+        })//document ready
 
+        function validate(callback){
+            //iterate through all the questions
+            var questionCOmpleted;
+            $('.chosen-select').each(function(){
+                if($(this).val()==""){
+                    questionCOmpleted = false;
+                }
+            })
+
+            .promise().done(function(){
+                if(questionCOmpleted == false){
+                    allFieldsCompleted = false;
+                }
+                else if($("#formName").val().trim() == ""){
+                    allFieldsCompleted = false;
+                }
+                else if($("#formImage").val().trim() == ""){
+                    allFieldsCompleted = false;
+                }
+                else{
+                    allFieldsCompleted = true;
+                }
+                callback();
+            });
+        }
+
+        //get the iput 
+
+        function getInput(){
+            var newFriend = {
+                name : $('#formName').val().trim(),
+                photo : $('#formImage').val().trim(),
+                scores : []
+            };
+            var scoresArray = [];
+            $('.chosen-select').each(function(){
+                scoresArray.push(parseInt($(this).val()));
+            })
+            .promise().done(function(){
+                newFriend.scores = scoresArray;
+                var currentURL = window.location.origin;
+                $.post(currentURL +"/api/friends", newFriend, function(data){
+                    $('#matchName').text(data.name);
+                    $('#matchImg').attr('src', data.photo);
+
+                    //Show the result with  best match\
+
+                    $('#resultsModal').modal('toggle');
+                })///end ajax post
+            })
+        }
 
     </script>
-</body>
 
+  </body>
 </html>
