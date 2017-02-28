@@ -16,5 +16,11 @@ var friendsData=[{
 	"name" : "xyz",
 	"photo" : "http://cdn.attackofthecute.com/January-21-2015-23-24-59-tt.jpg",
 	"scores" : [2,3,4,5,1,1,5,2,5,4]
-}];
+},
+ {
+	 "name" : "test",
+	"photo" : "http://vignette2.wikia.nocookie.net/pkmncollectors/images/0/02/009Blastoise.png/revision/latest?cb=20100612002433",
+	"scores" : [2,3,4,5,1,4,5,2,5,4]
+	
+		 }];
 module.exports = friendsData;
